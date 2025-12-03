@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name= "viewport" content = "width=device-with, initial-scale=1.0" charset="UTF-8" />
+  <title>Genera Tu Distintivo</title>
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="imgs/img23.png"> -->
+  <!-- Funcionalidades JS -->
+  <script src="script.js" defer></script> 
+</head>
+<body>
+  <div class="page">
+    <!-- Encabezado -->
+    <!-- <div class="top-label">
+      <img src="imgs/Sedena2024.png" alt="Sedena2024" class="top-label-img">
+      <span></span>
+    </div> -->
+    <main class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Genera tu Distintivo</h1>
+      </div>
+    </main>
+      <div class="selector-distintivo">
+        <p>Seleccione la siguiente información.</p>
+        <form id="form-selector-distintivo">
+          <!--1. mando de unidades tipo corporacion -->
+          <div class="form-row">
+            <label for="unidades-tipo-corporacion">
+              Mando de Unidades Tipo Corporación o Jefe de Organismos Equivalentes.
+            </label>
+            <small>Indica cuántas unidades ha ejercido cargo de este tipo.</small>
+            <select id="unidades-tipo-corporacion" name="unidades-tipo-corporacion" required>
+              <option value="">Selecciona una opción</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5 o más">5 o más</option>
+            </select>
+          </div>
+
+          <!--2. mandos superiores -->
+          <div class="form-row">
+            <label for="mandos-superiores">Mandos Superiores o Direcciones Generales.</label>
+            <small>Indica cuántas unidades ha ejercido cargo de este tipo.</small>
+            <select id="mandos-superiores" name="mandos-superiores" required>
+              <option value="">Selecciona una opción</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5 o más">5 o más</option>
+            </select>
+          </div>
+
+          <!--3. plana mayor -->
+          <div class="form-row">
+            <label for="plana-mayor">
+              Plana Mayor de la Secretaría de la Defensa Nacional.
+            </label>
+            <small>Indica si ha ejercido o ejerce cargo de este tipo.</small>
+            <select id="plana-mayor" name="plana-mayor" required>
+              <option value="">Selecciona una opción</option>
+              <option value="si">si</option>
+              <option value="no">no</option>
+            </select>
+          </div>
+
+          <!-- Botones -->
+          <div class="btn-row">
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
+            <button type="submit" class="btn btn-primary">Generar Distintivo</button>
+          </div>
+        </form>
+
+        <!-- Resultado con IMAGEN -->
+        <div id="resultado" class="resultado empty">
+          <div class="resultado-titulo">Distintivo:</div>
+          <div class="imagen-distintivo-wrapper">
+            <img id="imagen-distintivo" src="" alt="Distintivo sugerido" />
+          </div>
+          <div id="nota-distintivo" class="nota-distintivo"></div>
+        </div>
+      </div> 
+
+   <!-- Inicio del Modal -->
+  <div id="form-overlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+    <button type="button" class="modal-close" id="btn-close-form">X</button>
+    <!-- SECCIÓN "RECUERDA QUE..." -->
+    <section class="remember">
+      <h2 class="remember-title">Ley Orgánica del Ejército y Fuerza Área Mexicanos</h2>
+      <div class="extra-card">
+        <p class="remember-subtitle">
+        En la Ley Orgánica del Ejército y Fuerza Área Mexicanos, deja en claro para los términos generales de citada ley, 
+        que se entienden en lo singular y en lo particular, los siguientes conceptos.
+        </p>
+        <div class="extra-card-content">
+        <article class="remember-item">
+          <h3>Mandos de Unidades</h3>
+          <p class="remember-text">
+            ARTICULO 45. Los organismos constituidos por tropas del Ejército y Fuerza Aérea, estructurados internamente en dos o más escalones, equipados y adiestrados para cumplir misiones operativas en el combate y que funcionan esencialmente bajo normas tácticas en el cumplimiento de sus misiones, reciben el nombre de Unidades. 
+          </p>
+          <img src="imgs/r1.jpg" alt="Ejemplo 1">
+        </article>
+        
+        <article class="remember-item">
+          <img src="imgs/r3.jpg" alt="Ejemplo 2">
+          <h3>Mandos Superiores</h3>
+          <p class="remember-text"> 
+            ARTICULO 34. Los Mandos Superiores Operativos recaerán en: 
+            I. La persona Comandante del Ejército Mexicano; 
+            II. La persona Comandante de la Fuerza Aérea Mexicana;
+            II BIS. La persona Comandante de la Guardia Nacional;
+            III. Las personas Comandantes de Regiones Militares o Aéreas, así como Coordinadores Territoriales; 
+            IV. Las personas Comandantes de Zonas Militares y Coordinadores Estatales;
+            IV BIS. Las personas Comandantes de Bases Aéreas Militares; 
+            V. Las personas Comandantes de las Grandes Unidades Terrestres o Aéreas;
+            VI. Las personas Comandantes de las Unidades conjuntas o combinadas, y 
+            VII. Las personas Comandantes y Coordinadores de las Unidades Circunstanciales que el Alto Mando determine implementar. 
+          </p>
+        </article>
+
+        <article class="remember-item">
+          <img src="imgs/r3.png" alt="Rebranding estratégico">
+          <h3>Direcciones Generales</h3>
+          <p class="remember-text">
+            ARTICULO 32. Las direcciones generales de las armas, de los servicios y de otras funciones administrativas de la Secretaría de la Defensa Nacional, tendrán a su cargo las actividades relacionadas con el asesoramiento al Alto Mando y a los comandantes del Ejército, Fuerza Aérea y Guardia Nacional, así como la dirección, manejo y verificación de todos los asuntos militares no incluidos en los de carácter táctico o estratégico, que tiendan a la satisfacción de la moral militar y de las necesidades sociales y materiales, de acuerdo con el Reglamento Interior de la Secretaría de la Defensa Nacional. 
+          </p>
+        </article>
+
+        <article class="remember-item">
+          <h3>Plana Mayor de la Secretaria de la Defensa Nacional</h3>
+          <p class="remember-text">
+            A. Subsecretario de la Defensa Nacional.
+            B. Oficial Mayor de la Secretaría de la Defensa Nacional.
+            C. Inspector y Contralor General del Ejército y Fuerza Aérea.
+            D. Comandante de la Guardia Nacional.
+            E. Comandante del Ejército Mexicano.
+            F. Comandante de la Fuerza Aérea Mexicana.
+            G. Jefe del Estado Mayor Conjunto de la Defensa Nacional.
+            H. Subjefe Administrativo y Logístico del E.M.C.D.N.
+            I. Subjefe Operativo del E.M.C.D.N.
+            J. Subjefe de Doctrina Militar del E.M.C.D.N.
+            K. Subjefe de Seguridad Pública del E.M.C.D.N.
+          </p>
+          <img src="imgs/r4.png" alt="Identidad visual">
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="extra-section">
+      <h2 class="extra-title">Heráldica del Distintivo de Mando</h2>
+      <p class="extra-subtitle">
+        La nueva divisa hace uso de símbolos y colores que modernizan sus elementos con la finalidad de que sea más solemne y atractiva, 
+        creando una identidad visual única. La heráldica empleada hace conexión directamente con nuestras raíces culturales y las características propias del liderazgo militar.
+      </p>
+      <div class="extra-grid">
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+            class="extra-card-image"
+            src="imgs/cplateado.png"
+            alt="Color Plateado"
+          />
+          <div class="extra-card-text">
+            <h4>Color Plateado</h4>
+            <p>
+              Simboliza rango, distinción y autoridad.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+            class="extra-card-image"
+            src="imgs/cdorado.png"
+            alt="Color Dorado"
+          />
+
+          <div class="extra-card-text">
+            <h4>Color Dorado</h4>
+            <p>
+              Simboliza honor, perseverancia y autoridad superior.
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+             class="extra-card-image"
+            src="imgs/aguiladorada.png"
+            alt="Color Dorado"
+          />
+
+          <div class="extra-card-text">
+            <h4>Cabeza de Águila</h4>
+            <p>
+              Transmite excelencia, madurez y determinación. 
+            Refleja fortaleza y visión en el ejercicio del mando. Se empleará la cabeza de un águila vista de perfil, 
+            cuando se ejerzan Mandos Superiores y de Direcciones Generales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+            class="extra-card-image"
+            src="imgs/jaguardorado.png"
+            alt="Color Dorado"
+          />
+        <div class="extra-card-text">
+          <h4>Cabeza de Jaguar Dorada</h4>
+          <p>
+            Simboliza valor, coraje y dominio estratégico. 
+            Se empleará la cabeza de un jaguar dorada vista de perfil, 
+            por el Secretario de la Defensa Nacional y cuando se haya ejercido 5 o más Mandos de Unidades tipo Corporación y Jefes de Organismos Equivalentes.
+          </p>
+        </div>
+        </div>
+      </div>
+
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+             class="extra-card-image"
+            src="imgs/jaguarplateado.png"
+            alt="Color Dorado"
+          />
+        <div class="extra-card-text">
+          <h4>Cabeza de Jaguar Plateada</h4>
+          <p>
+            Se empleará la cabeza de un jaguar plateada vista de perfil, 
+            cuando se haya ejercido de 1 a 4 Mandos de Unidades tipo Corporación y Jefes de Organismos Equivalentes.
+          </p>
+        </div>
+        </div>
+      </div>
+
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+             class="extra-card-image"
+            src="imgs/macuahuilth.png"
+            alt="Color Dorado"
+          />
+        <div class="extra-card-text">
+          <h4>Macuahuitl</h4>
+          <p>
+            Representa liderazgo, la disciplina, la rectitud, la honradez y la autoridad militar.
+          </p>
+        </div>
+        </div>
+      </div> 
+
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+             class="extra-card-image"
+            src="imgs/escudodorado.png"
+            alt="Color Dorado"
+          />
+        <div class="extra-card-text">
+          <h4>Escudo Chimalli Dorado</h4>
+          <p>
+            Representa la lealtad, los logros y el poder del guerrero. 
+            Se empleará el escudo chimalli dorado para el Secretario de la Defensa Nacional y cuando se forme parte de la Plana Mayor.
+          </p>
+        </div>
+        </div>
+      </div> 
+
+        <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+             class="extra-card-image"
+            src="imgs/escudoplateado.png"
+            alt="Color Dorado"
+          />
+        <div class="extra-card-text">
+          <h4>Escudo Chimalli Plateado</h4>
+          <p>
+            Se empleará el escudo chimalli plateado cuando se haya ejercido Mando en 5 o más ocasiones.
+          </p>
+        </div>
+        </div>
+      </div> 
+
+      <div class="extra-card">
+        <div class="extra-card-content">
+          <img
+            class="extra-card-image"
+            src="imgs/escudosobs.png"
+            alt="Espejos humeantes de obsidiana"
+          />
+
+          <div class="extra-card-text">
+            <h4>Espejos humeantes de obsidiana</h4>
+            <p>
+              Representan a Tezcatlipoca, deidad del destino y la sabiduría. 
+              Se usará uno por cada unidad o dependencia en las que se haya ejercido Mando
+              (hasta en 4 ocasiones).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section> 
+    </div>
+    </div>
+  </div>
+  <script src="script.js" defer></script>
+    <!-- <div class="bot-label">
+        <a href="#" class="btn-start" id ="btn-empezar">Acerca del Distintivo...</a>
+      <p class="remember-text">S-1 (R.H.) E.M.C.D.N.
+      Secretaría de la Defensa Nacional, Lomas de Sotelo, Cd. Méx.
+      Tel:(55)22228800, Ext. 3722. Derechos Reservados © 2025.
+      atencion_a_retirados@defensa.gob.mx
+      </p>
+    </div> -->
+</body>
+</html>
