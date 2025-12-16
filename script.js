@@ -255,7 +255,7 @@ form.addEventListener("submit", (e) => {
     claveDistintivo = "img23";
   }
   //regla24 (solo ser de la plana mayor)
-  else if (tipocorporacion === "0" && unidadesuperiores === "0" && planamayor === "si") {
+  else if (tipocorporacion === "" && unidadesuperiores === "0" && planamayor === "si") {
     claveDistintivo = "img23";
   }
 
